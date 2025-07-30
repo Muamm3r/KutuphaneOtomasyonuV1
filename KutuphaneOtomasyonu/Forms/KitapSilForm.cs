@@ -64,9 +64,9 @@ namespace KutuphaneOtomasyonu
 
             var filtrelenmis = db.Kitaplars
                 .Where(k =>
-                    k.KitapAdi.ToLower().Contains(arama) ||
-                    k.Yazar.ToLower().Contains(arama) ||
-                    k.Barkod.ToString().Contains(arama))
+                    (k.KitapAdi ?? string.Empty).ToLower().Contains(arama) ||
+                    (k.Yazar ?? string.Empty).ToLower().Contains(arama) ||
+                    (k.Barkod ?? string.Empty).Contains(arama))
                 .Select(k => new
                 {
                     k.KitapId,

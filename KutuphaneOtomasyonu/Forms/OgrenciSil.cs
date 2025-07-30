@@ -64,9 +64,9 @@ namespace KutuphaneOtomasyonu
 
             var filtrelenmis = db.Ogrencilers
                 .Where(o =>
-                    o.Ad.ToLower().Contains(arama) ||
-                    o.Soyad.ToLower().Contains(arama) ||
-                    o.Numara.ToLower().Contains(arama)
+                    (o.Ad ?? string.Empty).ToLower().Contains(arama) ||
+                    (o.Soyad ?? string.Empty).ToLower().Contains(arama) ||
+                    (o.Numara ?? string.Empty).ToLower().Contains(arama)
                 )
                 .Select(o => new
                 {

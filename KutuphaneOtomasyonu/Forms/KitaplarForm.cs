@@ -53,11 +53,11 @@ namespace KutuphaneOtomasyonu
 
             var filtrelenmis = db.Kitaplars
                 .Where(k =>
-            k.KitapAdi.ToLower().Contains(arama) ||
-            k.Yazar.ToLower().Contains(arama) ||
-            k.Barkod.ToString().Contains(arama) ||// 👈 Barkodu string'e çevirerek ara
-            k.Tur.ToLower().Contains(arama) ||
-            k.RafNo.ToString().Contains(arama)
+            (k.KitapAdi ?? string.Empty).ToLower().Contains(arama) ||
+            (k.Yazar ?? string.Empty).ToLower().Contains(arama) ||
+            (k.Barkod ?? string.Empty).Contains(arama) || // 👈 Barkodu string'e çevirerek ara
+            (k.Tur ?? string.Empty).ToLower().Contains(arama) ||
+            (k.RafNo ?? string.Empty).Contains(arama)
         )
                 .Select(k => new
                 {

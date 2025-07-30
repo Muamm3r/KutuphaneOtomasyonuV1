@@ -34,4 +34,10 @@
     <Folder Include="Forms\" />
   </ItemGroup>
 
+	<ItemGroup>
+		<None Update="fonts/arialuni.ttf">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
 </Project>

@@ -170,5 +170,7 @@ namespace KutuphaneOtomasyonu
             MessageBox.Show("Okul adı güncellendi. Lütfen programı yeniden başlatınız.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
+
+
     }
 }

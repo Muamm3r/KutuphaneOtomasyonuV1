@@ -49,7 +49,7 @@ namespace KutuphaneOtomasyonu
             var cezalikListesi = gecikmeliIslemler
                 .Select(k => new
                 {
-                    k.Id,
+                    IslemId = k.Id,
                     Ogrenci = k.Ogrenci.Ad + " " + k.Ogrenci.Soyad,
                     k.OgrenciId,
                     k.KitapId,
@@ -64,7 +64,7 @@ namespace KutuphaneOtomasyonu
 
             dataGridGecikmeler.Columns["OgrenciId"].Visible = false;
             dataGridGecikmeler.Columns["KitapId"].Visible = false;
-            dataGridGecikmeler.Columns["Id"].Visible = false;
+            dataGridGecikmeler.Columns["IslemId"].Visible = false;
         }
 
         private void CezalariListele()

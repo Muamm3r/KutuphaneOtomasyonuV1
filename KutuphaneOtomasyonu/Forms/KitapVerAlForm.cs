@@ -65,7 +65,7 @@ namespace KutuphaneOtomasyonu
             dataGridKitaplar.DataSource = kitaplar;
         }
 
-        private void CbOgrenci_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbOgrenci_SelectedIndexChanged(object? sender, EventArgs? e)
         {
             if (cbOgrenci.SelectedIndex == -1) return;
 

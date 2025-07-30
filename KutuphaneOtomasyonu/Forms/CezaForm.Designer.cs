@@ -6,8 +6,11 @@
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-                components.Dispose();
+            if (disposing)
+            {
+                components?.Dispose();
+                db?.Dispose();
+            }
             base.Dispose(disposing);
         }
 

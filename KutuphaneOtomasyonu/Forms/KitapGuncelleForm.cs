@@ -33,6 +33,7 @@ namespace KutuphaneOtomasyonu
             if (cmbKitapAdi.SelectedValue is int kitapId)
             {
                 var kitap = db.Kitaplars.FirstOrDefault(k => k.KitapId == kitapId);
+                if (kitap != null)
                 {
                     // Kitap bilgilerini ilgili kontrollere ata
                     txtKitapAd.Text = kitap.KitapAdi;
@@ -54,7 +55,26 @@ namespace KutuphaneOtomasyonu
                     // HATA DÜZELTMESİ: SayfaSayisi null ise 0 olarak ayarlandı.
                     nudSayfaSayisi.Value = (decimal)(kitap.SayfaSayisi ?? 0);
                 }
+                else
+                {
+                    Temizle();
+                    MessageBox.Show("Seçilen kitap bulunamadı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
+        }
+
+        private void Temizle()
+        {
+            txtKitapAd.Clear();
+            txtYazar.Clear();
+            txtYayinEvi.Clear();
+            txtRafNo.Clear();
+            txtTur.Clear();
+            txtKitapSayisi.Clear();
+            txtMevcutKitapSayisi.Clear();
+            txtBasimYeri.Clear();
+            dtpBasimTarihi.Value = DateTime.Now;
+            nudSayfaSayisi.Value = 0;
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
